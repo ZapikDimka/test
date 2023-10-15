@@ -2,7 +2,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Stack;
 
 class Student {
     private String name;
@@ -46,7 +45,7 @@ class Group {
         this.weeks = weeks;
         this.dayOfWeek = dayOfWeek;
         this.time = time;
-        this.classroom = classroom;
+        this. classroom = classroom;
     }
 
     public String getName() {
@@ -204,7 +203,6 @@ public class Main {
 
             // Поступовий опитуальник
             Scanner scanner = new Scanner(System.in);
-            Stack<String> previousSteps = new Stack<>();
 
             // Зчитування списку груп, до яких користувач вже записаний
             List<String> enrolledGroups = new ArrayList<>();
@@ -227,7 +225,6 @@ public class Main {
                 System.out.print("Виберіть факультет (введіть номер): ");
                 int facultyNumber = scanner.nextInt();
                 scanner.nextLine();  // Очистка буфера
-                previousSteps.push("Факультет");
 
                 if (facultyNumber > 0 && facultyNumber <= faculties.size()) {
                     Faculty selectedFaculty = faculties.get(facultyNumber - 1);
@@ -241,7 +238,6 @@ public class Main {
                     System.out.print("Виберіть курс (введіть номер): ");
                     int courseNumber = scanner.nextInt();
                     scanner.nextLine();  // Очистка буфера
-                    previousSteps.push("Курс");
 
                     if (courseNumber > 0 && courseNumber <= courses.size()) {
                         Course selectedCourse = courses.get(courseNumber - 1);
@@ -255,7 +251,6 @@ public class Main {
                         System.out.print("Виберіть спеціальність (введіть номер): ");
                         int specializationNumber = scanner.nextInt();
                         scanner.nextLine();  // Очистка буфера
-                        previousSteps.push("Спеціальність");
 
                         if (specializationNumber > 0 && specializationNumber <= specializations.size()) {
                             Specialization selectedSpecialization = specializations.get(specializationNumber - 1);
@@ -269,7 +264,6 @@ public class Main {
                             System.out.print("Виберіть предмет (введіть номер): ");
                             int subjectNumber = scanner.nextInt();
                             scanner.nextLine();  // Очистка буфера
-                            previousSteps.push("Предмет");
 
                             if (subjectNumber > 0 && subjectNumber <= subjects.size()) {
                                 Subject selectedSubject = subjects.get(subjectNumber - 1);
@@ -307,24 +301,6 @@ public class Main {
 
                                     // Виведення всіх груп, у які записаний користувач
                                     printEnrolledGroups(enrolledGroups);
-
-                                    // Повернення на попередній крок
-                                    if (!previousSteps.isEmpty()) {
-                                        previousSteps.pop(); // Поточний крок (вибір групи)
-                                        if (!previousSteps.isEmpty()) {
-                                            String previousStep = previousSteps.pop();
-                                            switch (previousStep) {
-                                                case "Факультет":
-                                                    break;
-                                                case "Курс":
-                                                    break;
-                                                case "Спеціальність":
-                                                    break;
-                                                case "Предмет":
-                                                    break;
-                                            }
-                                        }
-                                    }
                                 } else {
                                     System.out.println("Помилка: вибір групи не є дійсним.");
                                 }
