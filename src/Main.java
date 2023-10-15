@@ -2,36 +2,19 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+/* проект неповний ще можна з відносною легкістю дописати багато функціоналу, який був би більш націлений на
+* роботу з користувачем, але суть завдання була не в цьому, тому я вирішив цей нюанс опустити.
+*
+* хочу зазначити, що враховуючи розклад фену я не знайшов нічого крще,
+*  ніж просто написати предмети в текстовий документ
+* так би мовити руками для того, щоб комп'ютеру було легко сприймати дану інформацію,
+*  адже мені не вдалося за той час, який я приділив на це завдання написати алекватно працюючий
+*  алгоритм для зчитування дисциплін і груп для студентів напряму з наданого розкладу ФЕНу,
+* тому пересів на джаву і на прикладі ІПЗ зробив працюючу систему розкладу.
+* думаю, що в випадку ФЕНу "набагато дешевше" зробити так, як зробив я, або замовляти у їхнього деканату
+* адекватно заповнену таблицю з розкладом
+* */
 
-class Student {
-    private String name;
-    private List<String> enrolledGroups;
-
-    public Student(String name) {
-        this.name = name;
-        this.enrolledGroups = new ArrayList<>();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public List<String> getEnrolledGroups() {
-        return enrolledGroups;
-    }
-
-    public void enrollInGroup(String groupName) {
-        enrolledGroups.add(groupName);
-    }
-
-    public void withdrawFromGroup(String groupName) {
-        enrolledGroups.remove(groupName);
-    }
-
-    public boolean isEnrolledInGroup(String groupName) {
-        return enrolledGroups.contains(groupName);
-    }
-}
 
 class Group {
     private String name;
